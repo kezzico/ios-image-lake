@@ -14,7 +14,7 @@
 		9BB4478C207FFEA2006F1543 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BB4478B207FFEA2006F1543 /* Assets.xcassets */; };
 		9BB4478F207FFEA2006F1543 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB4478D207FFEA2006F1543 /* LaunchScreen.storyboard */; };
 		9BB4479A207FFEA3006F1543 /* image_upload_sampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB44799207FFEA3006F1543 /* image_upload_sampleTests.swift */; };
-		9BB447A720800238006F1543 /* CloudinaryClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB447A520800238006F1543 /* CloudinaryClient.m */; };
+		9BB447A9208016EF006F1543 /* CloudinaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB447A8208016EF006F1543 /* CloudinaryClient.swift */; };
 		FE88442B53E86FA875BAA733 /* Pods_image_upload_sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C81E6D311A1C09F795813D3 /* Pods_image_upload_sample.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +46,7 @@
 		9BB44799207FFEA3006F1543 /* image_upload_sampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = image_upload_sampleTests.swift; sourceTree = "<group>"; };
 		9BB4479B207FFEA3006F1543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BB447A420800237006F1543 /* image-upload-sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "image-upload-sample-Bridging-Header.h"; sourceTree = "<group>"; };
-		9BB447A520800238006F1543 /* CloudinaryClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CloudinaryClient.m; sourceTree = "<group>"; };
-		9BB447A620800238006F1543 /* CloudinaryClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CloudinaryClient.h; sourceTree = "<group>"; };
+		9BB447A8208016EF006F1543 /* CloudinaryClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudinaryClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,8 +112,7 @@
 		9BB44783207FFEA2006F1543 /* image-upload-sample */ = {
 			isa = PBXGroup;
 			children = (
-				9BB447A620800238006F1543 /* CloudinaryClient.h */,
-				9BB447A520800238006F1543 /* CloudinaryClient.m */,
+				9BB447A8208016EF006F1543 /* CloudinaryClient.swift */,
 				9BB44784207FFEA2006F1543 /* AppDelegate.swift */,
 				9BB44786207FFEA2006F1543 /* ViewController.swift */,
 				9BB44788207FFEA2006F1543 /* Main.storyboard */,
@@ -349,8 +347,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BB447A720800238006F1543 /* CloudinaryClient.m in Sources */,
 				9BB44787207FFEA2006F1543 /* ViewController.swift in Sources */,
+				9BB447A9208016EF006F1543 /* CloudinaryClient.swift in Sources */,
 				9BB44785207FFEA2006F1543 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

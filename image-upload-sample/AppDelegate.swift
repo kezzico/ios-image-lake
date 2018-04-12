@@ -17,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        CloudinaryClient.uploadPhoto(<#T##image: UIImage!##UIImage!#>, callback: <#T##callback!##callback!##(Error?, Any?) -> Void#>)
+        let image = UIImage()
+        CloudinaryClient.uploadPhoto(image) { (error, URL) in
+
+        }
         return true
     }
 
