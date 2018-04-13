@@ -19,9 +19,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBOutlet var didTouchUrl: UITapGestureRecognizer!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+        if let url = URL(string: self.imageUrlLabel.text) {
+            UIApplication.shared.open(url, options: nil, completionHandler: nil)
+        }
     }
 
     @IBAction func didTouchUpload(_ sender: Any) {
