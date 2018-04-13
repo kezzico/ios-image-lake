@@ -23,8 +23,8 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
-        if let url = URL(string: self.imageUrlLabel.text) {
-            UIApplication.shared.open(url, options: nil, completionHandler: nil)
+        if let url = URL(string: self.imageUrlLabel.text ?? "") {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 
