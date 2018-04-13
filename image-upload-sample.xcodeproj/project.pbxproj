@@ -15,6 +15,7 @@
 		9BB4478F207FFEA2006F1543 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB4478D207FFEA2006F1543 /* LaunchScreen.storyboard */; };
 		9BB4479A207FFEA3006F1543 /* image_upload_sampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB44799207FFEA3006F1543 /* image_upload_sampleTests.swift */; };
 		9BB447A9208016EF006F1543 /* CloudinaryClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB447A8208016EF006F1543 /* CloudinaryClient.swift */; };
+		9BB447AB20803163006F1543 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB447AA20803163006F1543 /* ImagePicker.swift */; };
 		FE88442B53E86FA875BAA733 /* Pods_image_upload_sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C81E6D311A1C09F795813D3 /* Pods_image_upload_sample.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		9BB4479B207FFEA3006F1543 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BB447A420800237006F1543 /* image-upload-sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "image-upload-sample-Bridging-Header.h"; sourceTree = "<group>"; };
 		9BB447A8208016EF006F1543 /* CloudinaryClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudinaryClient.swift; sourceTree = "<group>"; };
+		9BB447AA20803163006F1543 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				9BB447A8208016EF006F1543 /* CloudinaryClient.swift */,
+				9BB447AA20803163006F1543 /* ImagePicker.swift */,
 				9BB44784207FFEA2006F1543 /* AppDelegate.swift */,
 				9BB44786207FFEA2006F1543 /* ViewController.swift */,
 				9BB44788207FFEA2006F1543 /* Main.storyboard */,
@@ -348,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BB44787207FFEA2006F1543 /* ViewController.swift in Sources */,
+				9BB447AB20803163006F1543 /* ImagePicker.swift in Sources */,
 				9BB447A9208016EF006F1543 /* CloudinaryClient.swift in Sources */,
 				9BB44785207FFEA2006F1543 /* AppDelegate.swift in Sources */,
 			);
@@ -506,6 +510,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "image-upload-sample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.kezzi.image-upload-sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -524,6 +529,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "image-upload-sample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.kezzi.image-upload-sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";

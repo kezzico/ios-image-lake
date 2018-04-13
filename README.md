@@ -10,7 +10,7 @@ This article is focused on iOS. It describe how to:
 
   - Link Cloudinary's binaries into your native iOS build.
 
-  - Provides explination of the [sample code available here](https://bitbucket.org/kezzi-co/lee-kezzi-co).
+  - Provides explination for the [sample code available here](https://bitbucket.org/kezzi-co/lee-kezzi-co).
 
 
 ## Setup 
@@ -32,7 +32,7 @@ Next, visit the [Upload Settings page](https://cloudinary.com/console/settings/u
 4. 
 From the *Add Upload* preset screen set the *Preset name* to `photo-upload`, and the *Mode* to unsigned. Further down the page set *Type* to `upload` and *Access Mode* to `public`. Finally, set the *Upload format* to `jpg`
 
->Public access mode allows anyone with a URL to view the uploaded photo. Authenticated access will only require some minor tweaks to the source code. 
+>Public access mode allows anyone with a URL to view the uploaded photo. Authenticated mode will require some changes to the source code. 
 
 >png is also an available upload format if you are planning to upload images with transparency.
 
@@ -41,7 +41,7 @@ From the *Add Upload* preset screen set the *Preset name* to `photo-upload`, and
 
 Setup the Xcode project by creating a new single view app.
 
-Load cloudinary into your project using Cloudinary. If Cocoapods is not installed [install it from cocoapods.org site](https://cocoapods.org/)
+Load cloudinary into your project using Cocoapods. If Cocoapods is not installed [install it from cocoapods.org site](https://cocoapods.org/)
 
 From your terminal `cd` to your project's folder 
 > you can type cd then drag the folder into your terminal and press return.
@@ -57,27 +57,55 @@ Edit the Podfile by adding `pod 'Cloudinary'` below `use_frameworks!`
 
 From your terminal again enter `pod install`
 
-Make sure to close the Xcode project and open the .xcworkspace file Cocoapods has created
+Make sure to close the Xcode project and open the newly created `.xcworkspace` file by Cocoapods.
 
 
 ## Code
 
-As of writing this, I have not been able to successfully use Cloudinary through Swift, so let's make a bridging header.
-
-image-upload-sample-Bridging-Header.h
+Before you can upload anything your app will need to be configured. Using the values you noted from *Setup step 2* fill in this section of [CloudinaryClient.swift](https://bitbucket.org/lee-kezzi-co/image-upload-sample/src/3ea40fb611652ace61fa581276d3e489fb142d7e/image-upload-sample/CloudinaryClient.swift?at=master&fileviewer=file-view-default).
 ```
-//
-//  Use this file to import your target's public headers that you would like to expose to Swift.
-//
-
-#import "CloudinaryClient.h"
+    private var apiKey = "< YOUR API KEY HERE >";
+    private var apiSecret = "< YOUR API SECRET HERE >";
+    private var cloudName = "< YOUR CLOUD NAME HERE >";
 ```
 
+To upload an image using CloudinaryClient call the static uploadPhoto function from anywhere in your code.
+```
+    CloudinaryClient.uploadPhoto(image) { url, error in
+        print(">>>>>>> \(url)")
+    }
+```
 
+And voila, an _https_ url for your image is given in the callback function.
 
-The photo is uploaded as a JPEG image with minor compression
+The code used to upload the image works by first creating a configuration using a cloudinary URL which is used to setup an Uploader, and then a UIImage is changed to Data format and sent to Cloudinary.
+
+1. Create a new configuration using the values from above.
+```
+    let url = "cloudinary://\(self.apiKey):\(self.apiSecret)@\(self.cloudName)"
+    let config = CLDConfiguration(cloudinaryUrl: url)
+```
+
+2. Create a new uploader for every request sent. 
+```
+        let cld = CLDCloudinary(configuration: config, networkAdapter: nil, sessionConfiguration: nil)
+```
+
+3. Change your UIImage into Data as a JPEG or a PNG.
 ```
     let data = UIImageJPEGRepresentation(image, 0.75)
-    client.upload(data, "photo-upload")
 ```
 
+4. uploadPreset should match the value set in *Setup step 4*. Make sure you call back to the main thread before making any changes to the UI.
+```
+        cld.createUploader().upload(data: data, uploadPreset: "photo-upload", params: nil, progress: { }) { (result, error) in
+            DispatchQueue.main.async {
+                callback(result?.secureUrl, error)
+            }
+        }
+```
+
+
+And that's it! you should be ready to create your own app with image uploading capabilities. 
+
+Thank you for reading. Questions and comments to [lee@kezzi.co](mailto:lee@kezzi.co)
