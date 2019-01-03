@@ -74,9 +74,9 @@ Using the values from *Setup a Cloudinary account step 2*
 Add this section of .
 ```
 class CloudinaryClient {
-    private var apiKey = "< YOUR API KEY HERE >";
-    private var apiSecret = "< YOUR API SECRET HERE >";
-    private var cloudName = "< YOUR CLOUD NAME HERE >";
+    private static var apiKey = "< YOUR API KEY HERE >";
+    private static var apiSecret = "< YOUR API SECRET HERE >";
+    private static var cloudName = "< YOUR CLOUD NAME HERE >";
 ```
 
 Let's add a function to CloudinaryClient so that it can be called from anywhere. It will take 2 parameters. The image to upload, and a callback function containing the URL of the image.
